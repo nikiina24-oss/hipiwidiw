@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>December Rain 🌧️</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(to bottom, #bfc9d9, #e6e9f0);
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      color: #2f3e46;
+    }
+
+    /* ☁️ CLOUDS */
+    .clouds {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 150px;
+      background:
+        radial-gradient(circle at 20% 60%, #fff 60px, transparent 61px),
+        radial-gradient(circle at 35% 50%, #fff 80px, transparent 81px),
+        radial-gradient(circle at 55% 60%, #fff 70px, transparent 71px),
+        radial-gradient(circle at 75% 50%, #fff 90px, transparent 91px);
+      opacity: 0.8;
+      z-index: 1;
+    }
+
+    .container {
+      text-align: center;
+      z-index: 2;
+      padding: 50px;
+      background: rgba(255, 255, 255, 0.65);
+      border-radius: 24px;
+      backdrop-filter: blur(8px);
+      max-width: 520px;
+      width: 90%;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 18px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    button {
+      margin-top: 28px;
+      padding: 12px 26px;
+      border: none;
+      border-radius: 30px;
+      background: #6b8ba4;
+      color: white;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #56758f;
+    }
+
+    /* 🌧️ RAIN */
+    .rain {
+      position: absolute;
+      top: -100px;
+      width: 2px;
+      height: 22px;
+      background: rgba(255, 255, 255, 0.7);
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(120vh);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="clouds"></div>
+
+  <div class="container">
+    <h1>Hai Mba Fatmaww 🤍</h1>
+    <p>
+      Selamat datang pada bab baru yaa.<br><br>
+
+      Apapun itu, aku berdoa semoga Mba Fatma<br>
+      selalu dikelilingi hal-hal manis<br>
+      di setiap huruf yang Mba Fatma tulis.<br><br>
+
+      Lesgoww Mba Fatmaaa,<br>
+      kita besok keliling dunia yaa.<br>
+      Aku jajanin gelato stracciatella di Italia deh xixixi 🍨🇮🇹
+    </p>
+
+    <audio id="bgm" loop>
+      <source src="lagu.mp3" type="audio/mpeg">
+    </audio>
+
+    <button onclick="document.getElementById('bgm').play()">
+      ▶ Play Music
+    </button>
+  </div>
+
+  <!-- 🌧️ SCRIPT HUJAN -->
+  <script>
+    const jumlahHujan = 110;
+
+    for (let i = 0; i < jumlahHujan; i++) {
+      const rain = document.createElement("div");
+      rain.classList.add("rain");
+      rain.style.left = Math.random() * window.innerWidth + "px";
+      rain.style.animationDuration = (1.8 + Math.random() * 2.5) + "s";
+      rain.style.opacity = 0.4 + Math.random() * 0.6;
+      document.body.appendChild(rain);
+    }
+  </script>
+
+</body>
+</html>
